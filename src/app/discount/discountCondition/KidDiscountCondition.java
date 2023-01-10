@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import static app.discount.discountPolicy.FixedAmountDiscountPolicy.FIXED_AMOUNT;
 
-public class KidDiscountCondition {
+public class KidDiscountCondition implements DiscountCondition {
     private boolean isSatisfied;
     final private static int CUT_LINE_AGE = 20;
 

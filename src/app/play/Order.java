@@ -10,17 +10,17 @@ public class Order {
     }
 
     public void makeOrder() {
-        CozDiscountCondition cozDiscountCondition = new CozDiscountCondition();
-        KidDiscountCondition kidDiscountCondition = new KidDiscountCondition();
-
-        cozDiscountCondition.checkDiscountCondition();
-        kidDiscountCondition.checkDiscountCondition();
-
         int totalPrice = cart.calculateTotalPrice();
         int finalPrice = totalPrice;
 
-        if (cozDiscountCondition.isSatisfied()) finalPrice = cozDiscountCondition.applyDiscount(finalPrice);
-        if (kidDiscountCondition.isSatisfied()) finalPrice = kidDiscountCondition.applyDiscount(finalPrice);
+        DiscountCondition[] discountConditions = new DiscountCondition[
+                new CozDiscountCondition(),
+                new KidDiscountCondition();
+
+        for(DiscountCondition discountCondition : discountConditions) {
+            discountCondition.checkDiscountCondition();
+            if (discountCondition.isSatisfied()) finalPrice = discountCondition.applyDiscount(finalPrice);
+        }
 
         System.out.println("[📣] 주문이 완료되었습니다. ");
         System.out.println("[📣] 주문 내역은 다음과 같습니다. ");

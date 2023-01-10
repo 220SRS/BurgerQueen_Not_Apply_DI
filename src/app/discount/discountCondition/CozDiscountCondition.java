@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 import static app.discount.discountPolicy.FixedRateDiscountPolicy.FIXED_RATE;
 
-public class CozDiscountCondition {
+public class CozDiscountCondition implements DiscountCondition {
     private boolean isSatisfied;
 
     private FixedRateDiscountPolicy fixedRateDiscountPolicy = new FixedRateDiscountPolicy(FIXED_RATE);
